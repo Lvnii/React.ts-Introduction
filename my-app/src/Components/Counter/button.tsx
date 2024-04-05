@@ -1,7 +1,12 @@
-const Button = () => {
-    // const {text, click} = props
+type Props = {
+    text: string,
+    click: () => void,
+}
 
-    return <button></button>
+const Button = (props: Props) => {
+    const {text, click} = props
+
+    return <button onClick={click}>{text}</button>
 }
 
 export default Button;
