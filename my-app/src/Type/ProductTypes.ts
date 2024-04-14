@@ -10,4 +10,5 @@ export type Products = {
     category: string,
     thumbnail: string,
     images: Array<string>,
+    count?: number,
 }

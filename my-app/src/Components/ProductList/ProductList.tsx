@@ -1,9 +1,11 @@
 import useProducts, { ContextTypes } from "../../Store/ProductsContext"
+import { Products } from "../../Type/ProductTypes";
+import useCart from "../../Store/CartContext";
+import { ContextTypes as CartContextTypes } from "../../Store/CartContext";
 
 const ProductList = () => {
     const { data, isLoading} = useProducts() as ContextTypes;
-    // console.log(typeof data)
-    
+    const { addItem } = useCart() as CartContextTypes;    
     return (
         <div>
             {isLoading ? <p>Loading...</p> : (
@@ -16,6 +18,7 @@ const ProductList = () => {
                                     <p>
                                         {item.brand} - {item.title}
                                     </p>
+                                    <button onClick={() => addItem(item)}>Add to cart</button>
                                 </div>
                             </li>
                         )

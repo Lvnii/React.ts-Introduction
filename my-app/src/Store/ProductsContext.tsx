@@ -15,9 +15,9 @@ export const ProductContextProvider = (props: PropsWithChildren) => {
     const getData = useCallback(async () => {
         setLoading(true)
         try {
-            const result = await fetch('https://dummyjson.com/users');
+            const result = await fetch('https://dummyjson.com/products');
             const data = await result.json();
-            setData(data)
+            setData(data.products)
         } catch (error) {
             console.log(error)
         } finally {
